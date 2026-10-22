@@ -1,0 +1,75 @@
+:root {
+  --page: #f4efe3;
+  --ink: #101827;
+  --muted: #4d5666;
+  --gold: #9a7634;
+  --line: rgba(16, 24, 39, 0.16);
+  --block: #ebe4d2;
+  --serif: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --sans: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #0c1322;
+    --ink: #eee7d6;
+    --muted: #a9a596;
+    --gold: #d2b06a;
+    --line: rgba(238, 231, 214, 0.16);
+    --block: #151f33;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #0c1322;
+  --ink: #eee7d6;
+  --muted: #a9a596;
+  --gold: #d2b06a;
+  --line: rgba(238, 231, 214, 0.16);
+  --block: #151f33;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--sans); font-size: 1rem; line-height: 1.65; overflow-x: hidden; }
+a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+a:hover { color: var(--gold); }
+.layout { max-width: 980px; margin: 0 auto; padding: 0 16px; display: grid; grid-template-columns: 200px 1fr; gap: 48px; }
+header.top { border-bottom: 1px solid var(--line); }
+header.top .layout { display: flex; justify-content: space-between; align-items: center; height: 60px; grid-template-columns: none; }
+.brand { font-family: var(--serif); font-size: 1.2rem; text-decoration: none; }
+.brand span { color: var(--gold); }
+aside nav { position: sticky; top: 24px; padding-top: 40px; font-size: 0.92rem; }
+aside nav a { display: block; text-decoration: none; padding: 6px 0 6px 12px; border-left: 1px solid var(--line); }
+aside nav a[aria-current="page"] { border-left: 2px solid var(--gold); color: var(--gold); }
+main { padding: 40px 0 72px; min-width: 0; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 6vw, 2.9rem); margin: 0 0 0.4em; font-weight: 400; }
+h2 { font-size: 1.6rem; margin: 2.2em 0 0.5em; padding-top: 0.6em; border-top: 1px solid var(--line); }
+h3 { font-size: 1.15rem; margin: 1.6em 0 0.4em; }
+p, li { max-width: 44rem; }
+.kicker { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 1em; }
+.lede { font-size: 1.1rem; color: var(--muted); }
+pre, code { font-family: var(--mono); font-size: 0.88rem; }
+code { background: var(--block); padding: 0.1em 0.35em; }
+pre { background: var(--block); padding: 16px; overflow-x: auto; border-left: 2px solid var(--gold); white-space: pre; max-width: 100%; }
+pre code { background: none; padding: 0; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 0.94rem; display: block; overflow-x: auto; }
+th, td { text-align: left; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.note { border-left: 2px solid var(--gold); padding: 4px 0 4px 16px; color: var(--muted); }
+.steps { counter-reset: s; padding-left: 0; list-style: none; }
+.steps li { counter-increment: s; padding-left: 44px; position: relative; margin-bottom: 14px; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: 0; font-family: var(--mono); color: var(--gold); }
+.index-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); margin-top: 28px; }
+.index-grid a { display: block; padding: 22px 20px 22px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.index-grid a:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--line); }
+.index-grid strong { font-family: var(--serif); font-weight: 500; font-size: 1.2rem; display: block; }
+.index-grid span { color: var(--muted); font-size: 0.93rem; }
+footer { border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); padding: 24px 0 40px; }
+footer .layout { grid-template-columns: 1fr; }
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; gap: 0; }
+  aside nav { position: static; padding-top: 16px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  aside nav a { border-left: 0; padding: 4px 0; }
+  aside nav a[aria-current="page"] { border-left: 0; }
+  .index-grid { grid-template-columns: 1fr; }
+  .index-grid a:nth-child(even) { padding-left: 0; border-left: 0; }
+}

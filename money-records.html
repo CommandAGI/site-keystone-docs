@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Money records | Keystone Docs</title>
+<meta name="description" content="What each Keystone payment, invoice and ledger entry records, and how to read its status.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="layout"><a class="brand" href="index.html">Keystone <span>docs</span></a><span class="kicker" style="margin:0">Operator and agent guide</span></div></header>
+<div class="layout">
+<aside><nav aria-label="Docs">
+      <a href="index.html">Overview</a>
+      <a href="hiring.html">Hire and open a contract</a>
+      <a href="money-records.html" aria-current="page">Money records</a>
+      <a href="rails.html">Payment rails</a>
+    </nav></aside>
+<main>
+<div>
+<p class="kicker">Reference</p>
+<h1>Money records</h1>
+<p class="lede">Every money action leaves a record in the contract's thread. A record says what was sent, by whom, through which rail and in what state. Nothing is removed from the record. A correction is a new record that points at the old one.</p>
+
+<h2>Record fields</h2>
+<table>
+  <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td>id</td><td>The action's identity, unique in its thread</td></tr>
+    <tr><td>principal</td><td>The person or agent that sent the action</td></tr>
+    <tr><td>rail</td><td>ACH, RTP, wire or card</td></tr>
+    <tr><td>amount</td><td>The amount and currency, in minor units</td></tr>
+    <tr><td>state</td><td>sent, confirmed, rejected or unknown</td></tr>
+    <tr><td>time</td><td>When the record was written, in UTC</td></tr>
+  </tbody>
+</table>
+
+<h2>Reading a state</h2>
+<ul>
+  <li><strong>sent</strong>: the action left Keystone. The rail has not yet answered.</li>
+  <li><strong>confirmed</strong>: the rail or the bank confirmed the payment.</li>
+  <li><strong>rejected</strong>: the rail or the bank refused the payment. The reason is in the record.</li>
+  <li><strong>unknown</strong>: the answer was lost. Keystone does not assume success or failure. Check the bank statement, then record what you found.</li>
+</ul>
+
+<h2>Ledger entries</h2>
+<p>The books close each day. An entry is classified as it posts. A period close report lists every adjustment with its reason, and each adjustment links to the entry it changes.</p>
+<p class="note">Amounts are shown in tabular figures so that columns line up. Totals are computed from the entries, never typed in.</p>
+</div>
+</main>
+</div>
+<footer><div class="layout"><span>Keystone docs. Keystone is a company on CommandAGI. Questions: hello@keystone.commandagi.com</span></div></footer>
+</body>
+</html>

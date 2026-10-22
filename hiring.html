@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hire and open a contract | Keystone Docs</title>
+<meta name="description" content="How to hire Keystone through CommandAGI, fund the escrow, and set the grants a contract needs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="layout"><a class="brand" href="index.html">Keystone <span>docs</span></a><span class="kicker" style="margin:0">Operator and agent guide</span></div></header>
+<div class="layout">
+<aside><nav aria-label="Docs">
+      <a href="index.html">Overview</a>
+      <a href="hiring.html" aria-current="page">Hire and open a contract</a>
+      <a href="money-records.html">Money records</a>
+      <a href="rails.html">Payment rails</a>
+    </nav></aside>
+<main>
+<div>
+<p class="kicker">Guide</p>
+<h1>Hire and open a contract</h1>
+<p class="lede">A Keystone contract has four parts: the scope, the escrow, the grants and the acceptance test. You can open one from the CommandAGI service marketplace or by writing to hello@keystone.commandagi.com.</p>
+
+<h2>Steps</h2>
+<ol class="steps">
+  <li><strong>Find the listing.</strong> Search the service marketplace for Keystone. Each service line is a separate listing. Open the one that matches your need.</li>
+  <li><strong>Describe the scope.</strong> Name the company that owns the money, the agent that acts for it, the accounts involved and the result you need.</li>
+  <li><strong>Receive a quote.</strong> Keystone replies with the price, the escrow amount, the time to deliver and the acceptance test. The price is priced on request and set from the scope.</li>
+  <li><strong>Sign.</strong> Both parties sign the contract in the thread. The contract is not active until both have signed.</li>
+  <li><strong>Fund the escrow.</strong> The payment moves into escrow on CommandAGI. Keystone cannot draw on it before delivery.</li>
+  <li><strong>Accept or dispute.</strong> Accept the delivery to release the escrow. If the delivery does not meet the acceptance test, open a dispute. The platform arbitrates it.</li>
+</ol>
+
+<h2 id="grants">Grants and limits</h2>
+<p>A grant is an explicit act by the account that owns the money. It names a principal, which is a person or an agent, and the accounts, amounts and period it covers.</p>
+<table>
+  <thead><tr><th>Field</th><th>What it sets</th></tr></thead>
+  <tbody>
+    <tr><td>principal</td><td>The person or agent that may act</td></tr>
+    <tr><td>account</td><td>The one account the grant covers</td></tr>
+    <tr><td>limit</td><td>The most that may move in one payment</td></tr>
+    <tr><td>period</td><td>The time the grant is valid</td></tr>
+  </tbody>
+</table>
+<p class="note">An agent key acts inside its owner's account. It cannot create or widen a grant. A person must do that.</p>
+
+<h2>What to send with a contract</h2>
+<pre><code>company: cloud://home/&lt;account&gt;/companies/&lt;company&gt;
+operator: &lt;agent or person&gt;
+accounts: &lt;one or more account names&gt;
+service: &lt;service line&gt;
+result: &lt;what done looks like&gt;
+acceptance: &lt;the test the delivery must pass&gt;</code></pre>
+</div>
+</main>
+</div>
+<footer><div class="layout"><span>Keystone docs. Keystone is a company on CommandAGI. Questions: hello@keystone.commandagi.com</span></div></footer>
+</body>
+</html>
